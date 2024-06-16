@@ -1,105 +1,103 @@
-# This file contains error messages which are shown to user, when http/https
-# login is used.
-# These messages can be changed to make user interface more friendly, including
-# translations to different languages.
+# Este arquivo contém mensagens de erro que são mostradas ao usuário quando o login http/https é usado.
+# Essas mensagens podem ser alteradas para tornar a interface do usuário mais amigável, incluindo
+# traduções para diferentes idiomas.
 #
-# Various variables can be used here as well. Most frequently used ones are:
-#	$(error-orig)	- original error message from hotspot
-#	$(ip)		- ip address of a client
-#	$(username)	- username of client trying to log in
+# Várias variáveis podem ser usadas aqui também. As mais frequentemente usadas são:
+#	$(error-orig)	- mensagem de erro original do hotspot
+#	$(ip)		- endereço IP do cliente
+#	$(username)	- nome de usuário do cliente tentando fazer login
 
-# internal-error
-# It should never happen. If it will, error page will be shown
-# displaying this error message (error-orig will describe what has happened)
+# Erro-interno
+# Isso nunca deve acontecer. Se acontecer, a página de erro será exibida
+# mostrando esta mensagem de erro (error-orig descreverá o que aconteceu)
 
 internal-error = Erro Interno ($(error-orig))
 
-# config-error
-# Should never happen if hotspot is configured properly.
+# Erro-de-configuração
+# Nunca deve acontecer se o hotspot estiver configurado corretamente.
 
-config-error = CONFIGURA��O ERRADA ($(error-orig))
+config-error = Configuração Errada ($(error-orig))
 
-# not-logged-in
-# Will happen, if status or logout page is requested by user,
-# which actually is not logged in
+# Não-logado
+# Acontecerá se a página de status ou logout for solicitada pelo usuário,
+# que na verdade não está logado
 
-not-logged-in = N�o Logado (ip $(ip))
+not-logged-in = Não Logado (ip $(ip))
 
-# ippool-empty
-# IP address for user is to be assigned from ip pool, but there are no more
-# addresses in that pool
+# Pool-de-ip-vazio
+# O endereço IP do usuário deve ser atribuído a partir do pool de IP, mas não há mais
+# endereços nesse pool
 
-ippool-empty = N�o pode atribuir o IP address - N�o h� mais endere�os livres para associa��o
+ippool-empty = Não Pode Atribuir O Endereço IP - Não Há Mais Endereços Livres Para Associação
 
-# shutting-down
-# When shutdown is executed, new clients are not accepted
+# Desligando
+# Quando o desligamento é executado, novos clientes não são aceitos
 
-shutting-down = o servi�o Hotspot est� sendo desligado
+shutting-down = O Serviço Hotspot Está Sendo Desligado
 
-# user-session-limit
-# If user profile has limit of shared-users, then this error will be shown
-# after reaching this limit
+# Limite-de-sessão-do-usuário
+# Se o perfil do usuário tem um limite de usuários compartilhados, esta mensagem de erro será mostrada
+# após atingir este limite
 
-user-session-limit = N�o mais sess�o � permitida ao usu�rio $(username)
+user-session-limit = Não É Permitida Mais Sessão Para O Usuário $(username)
 
-# license-session-limit
-# Depending on licence number of active hotspot clients is limited to
-# one or another amount. If this limit is reached, following error is displayed.
+# Limite-de-sessão-de-licença
+# Dependendo da licença, o número de clientes hotspot ativos é limitado a
+# uma quantidade específica. Se esse limite for atingido, a seguinte mensagem de erro é exibida.
 
-license-session-limit = Alcan�ou o limite da sess�o $(error-orig))
+license-session-limit = Alcançou O Limite Da Sessão $(error-orig)
 
-# wrong-mac-username
-# If username looks like MAC address (12:34:56:78:9a:bc), but is not
-# a MAC address of this client, login is rejected
+# Mac-username-incorreto
+# Se o nome de usuário parecer um endereço MAC (12:34:56:78:9a:bc), mas não é
+# um endereço MAC deste cliente, o login é rejeitado
 
-wrong-mac-username = Usu�rio inv�lido ($(username)): Este MAC address N�O TE PERTENCE
+wrong-mac-username = Usuário Inválido ($(username)): Este Endereço MAC Não Te Pertence
 
-# chap-missing
-# If http-chap login method is used, but hotspot program does not receive
-# back encrypted password, this error message is shown.
-# Possible reasons of failure:
-#	- JavaScript is not enabled in web browser;
-#	- login.html page is not valid;
-#	- challenge value has expired on server (more than 1h of inactivity);
-#	- http-chap login method is recently removed;
-# If JavaScript is enabled and login.html page is valid,
-# then retrying to login usually fixes this problem.
+# Chap-ausente
+# Se o método de login http-chap for usado, mas o programa hotspot não receber
+# de volta a senha criptografada, esta mensagem de erro é exibida.
+# Possíveis razões para a falha:
+#	- JavaScript não está habilitado no navegador web;
+#	- a página login.html não é válida;
+#	- o valor do desafio expirou no servidor (mais de 1h de inatividade);
+#	- o método de login http-chap foi removido recentemente;
+# Se o JavaScript estiver habilitado e a página login.html for válida,
+# então tentar fazer login novamente geralmente resolve o problema.
 
-chap-missing = o browser da web n�o respondeu a requisi��o (Fa�a outra tentativa, permita o Javascript)
+chap-missing = O Navegador Da Web Não Respondeu À Requisição (Tente Novamente, Permita O JavaScript)
 
-# invalid-username
-# Most general case of invalid username or password. If RADIUS server
-# has sent an error string with Access-Reject message, then it will
-# override this setting.
+# Nome-de-usuário-inválido
+# Caso mais geral de nome de usuário ou senha inválidos. Se o servidor RADIUS
+# enviou uma string de erro com a mensagem Access-Reject, então isso
+# substituirá esta configuração.
 
-invalid-username = USU�RIO OU SENHA INV�LIDA - TENTE NOVAMENTE
+invalid-username = Usuário Ou Senha Inválida - Tente Novamente
 
-# invalid-mac
-# Local users (on hotspot server) can be bound to some MAC address. If login
-# from different MAC is tried, this error message will be shown.
+# Mac-inválido
+# Usuários locais (no servidor hotspot) podem ser vinculados a um endereço MAC. Se o login
+# de um MAC diferente for tentado, esta mensagem de erro será exibida.
 
-invalid-mac = N�o � permitido a este usu�rio $ (username)  usar este MAC address
+invalid-mac = Não É Permitido Ao Usuário $(username) Usar Este Endereço MAC
 
-# uptime-limit, traffic-limit
-# For local hotspot users in case if limits are reached
+# Limite-de-tempo, limite-de-tráfego
+# Para usuários locais do hotspot, caso os limites sejam atingidos
 
-uptime-limit = o usu�rio $ (username) alcan�ou o limite do uptime
-traffic-limit = o usu�rio $ (username) alcan�ou o limite do tr�fego
+uptime-limit = O Usuário $(username) Alcançou O Limite De Tempo De Uso
+traffic-limit = O Usuário $(username) Alcançou O Limite De Tráfego
 
-# radius-timeout
-# User is authenticated by RADIUS server, but no response is received from it,
-# following error will be shown.
+# Timeout-do-radius
+# O usuário é autenticado pelo servidor RADIUS, mas nenhuma resposta é recebida dele,
+# a seguinte mensagem de erro será exibida.
 
-radius-timeout = SERVIDOR RADIUS N�O ESTA RESPONDENDO
+radius-timeout = Servidor RADIUS Não Está Respondendo
 
-# auth-in-progress
-# Authorization in progress. Client already has issued an authorization request
-# which is not yet complete.
+# Autenticação-em-andamento
+# Autorização em andamento. O cliente já emitiu uma solicitação de autorização
+# que ainda não está completa.
 
-auth-in-progress = j� autorizando, experimente de novo mais tarde
+auth-in-progress = Autorizando, Tente Novamente Mais Tarde
 
-# radius-reply
-# Radius server returned some custom error message
+# Resposta-do-radius
+# O servidor RADIUS retornou alguma mensagem de erro personalizada
 
 radius-reply = $(error-orig)
-
